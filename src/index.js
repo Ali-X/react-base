@@ -2,7 +2,16 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import './index.scss';
 
-class Counter extends React.Component {
+function ReactBase(props) {
+  return (
+    <div>
+      <Task1/>
+      <Task2/>
+    </div>
+  );
+}
+
+class Task1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,9 +56,32 @@ class Counter extends React.Component {
   }
 }
 
+class Task2 extends React.Component {
+  n = 0;
+
+  render() {
+    return (
+      <div>
+        <button>Show Users</button>
+        <div>Total: {this.n} users</div>
+        <div>Checked: {this.n} users</div>
+        <table>
+          <tr>
+            <td><input type="checkbox"/></td>
+            <td>date</td>
+            <td>name</td>
+            <td>email</td>
+            <td>desc</td>
+          </tr>
+        </table>
+      </div>
+    );
+  }
+}
+
 // ========================================
 
 ReactDOM.render(
-  <Counter value="0"/>,
+  <ReactBase/>,
   document.getElementById('root')
 );
