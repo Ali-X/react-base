@@ -1,0 +1,36 @@
+.counter {
+  text-align: center;
+  font-size: 2rem;
+  font-style: normal;
+
+  &__btn {
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    color: gray;
+    border: solid lightgray 1px;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  &__num {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
+}

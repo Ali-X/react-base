@@ -1,12 +1,55 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import './index.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0,
+    }
+  }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  render() {
+    return (
+      <div className="counter">
+        <button className="counter__btn"
+                onClick={() => {
+                  this.setState({
+                    counter: this.state.counter - 1,
+                  })
+                }}
+        >-
+        </button>
+        {this.createNumber(this.state.counter)}
+        <button className="counter__btn"
+                onClick={() => {
+                  this.setState({
+                    counter: this.state.counter + 1,
+                  })
+                }}
+        >+
+        </button>
+      </div>
+    );
+  }
+
+  createNumber(counter) {
+    let color;
+    if (counter < 0) {
+      color = "red";
+    } else if (counter > 0) {
+      color = "green";
+    } else {
+      color = "black";
+    }
+    return <span className={"counter__num " + color}>{this.state.counter}</span>;
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <Counter value="0"/>,
+  document.getElementById('root')
+);
